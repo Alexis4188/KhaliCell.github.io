@@ -34,6 +34,20 @@ html {
     border-radius: 25px;
     cursor: pointer;
 }
+.font{
+    color: #E000B7;
+    position: absolute;
+    left: 13%;
+    bottom: 20%;
+    font-size: 23px;
+}
+.font1{
+    color: #E000B7;
+    position: absolute;
+    right: 13%;
+    bottom: 20%;
+    font-size: 23px;
+}
 .toggle{
     position: absolute;
     top: 0;
@@ -67,6 +81,14 @@ body.active{
     #contenedor_toggle.active .toggle{
         left: 20px;
     }
+    .font{
+        font-size: 15px;
+        bottom: 25%;
+    }
+    .font1{
+        font-size: 15px;
+        bottom: 25%;
+    }
 }
 @media (max-width: 580px){
     #contenedor_toggle{
@@ -83,6 +105,14 @@ body.active{
     }
     #contenedor_toggle.active .toggle{
         left: 10px;
+    }
+    .font{
+        font-size: 10px;
+        bottom: 25%;
+    }
+    .font1{
+        font-size: 10px;
+        bottom: 25%;
     }
 }
 
@@ -240,6 +270,11 @@ a{
     font-family: 'press Start 2P', sans-serif;
     margin: 20px;
     color: #E000B7;
+}
+@media(min-width: 1075px){
+    .Titulo{
+        padding-left: 265px;
+    }
 }
 @media(max-width: 900px){
     .Titulo{
@@ -545,6 +580,12 @@ body.active .servicio{
         transform:scale(0);
         filter:blur(12px);
         opacity: 0;
+    }
+}
+@media(min-width: 1075px){
+    .Servicios{
+        margin: auto;
+        margin-top: 80px;
     }
 }
 @media(max-width: 900px){
