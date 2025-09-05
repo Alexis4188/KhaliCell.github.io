@@ -1,13 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Varela+Round&display=swap');
+
 body{
     background-color: rgb(255, 255, 255);
     transition: 0.3s;
     margin: 0;
-    font-family: sans-serif
 }
 html {
     scroll-behavior: smooth;
 }
+
+/* Efecto Slide en secciones */
+.slide-in{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.slide-in.visible{
+    opacity: 1;
+    transform: translateX(0);
+} 
 
 /*Encabezado*/
 
@@ -40,6 +51,22 @@ html {
 body.active{
     background-color: #000000;
     transition: 0.3s;
+}
+@media (max-width: 900px){
+     #contenedor_toggle{
+        margin: 0;
+        position: absolute;
+        right: 60px;
+        width: 50px;
+        height: 30px;
+    }
+    .toggle{
+        width: 30px;
+        height: 30px;
+    }
+    #contenedor_toggle.active .toggle{
+        left: 20px;
+    }
 }
 @media (max-width: 580px){
     #contenedor_toggle{
@@ -98,6 +125,7 @@ a{
     transition: 0.5s;
 }
 .link_header_nav a{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 24px;
     font-weight: 600;
     padding-right: 90px;
@@ -108,52 +136,23 @@ a{
     color: #E000B7;
     transform: scale(1.2);
 }
-@media (max-width: 1200px){
-    .link_header_nav{
-        left: 60%;
-        transform: translate(-40%);
-    }
-    .link_header_nav a{
-        font-size: 22px;
-    }
-    .logo{
-        margin-right: 20px;
-    }
-}
-@media(max-width: 768px){
+@media (max-width: 900px){
     .encabezado{
-        flex-direction: column;
         position: static;
     }
     .logo{
-        margin-right: 130px;
+        margin-right: 0px;
+        font-size: 12px;
+        margin-right: 8%;
     }
     .link_header_nav{
         position: static;
-        transform: none;
+        transform: none; 
         justify-content: center;
     }
     .link_header_nav a{
-        font-size: 26px;
-        padding-right: 60px;
-    }
-}
-@media (max-width: 600px){
-    .encabezado{
-        flex-direction: column;
-        position: static;
-    }
-    .logo{
-        margin-right: 85px;
-    }
-    .link_header_nav{
-        position: static;
-        transform: none;
-        justify-content: center;
-    }
-    .link_header_nav a{
-        font-size: 22px;
-        padding-right: 40px;
+        padding: 10px;
+        font-size: 20px;
     }
 }
 @media(max-width: 580px){
@@ -209,6 +208,15 @@ a{
     0%{transform: translateY(0);}
     100%{transform: translateY(-10px);}
 }
+@media(max-width: 900px){
+    .subir{
+        width: 20px;
+        font-size: 16px;
+        padding: 8px;
+        bottom: 10px;
+        right: 15px;
+    }
+}
 @media(max-width: 580px){
     .subir{
         width: 20px;
@@ -233,36 +241,13 @@ a{
     margin: 20px;
     color: #E000B7;
 }
-@media(max-width: 1200px){
+@media(max-width: 900px){
     .Titulo{
-        width: 100%;
+        width: 90%;
+        padding-left: 19px;
     }
     .Titulo h1{
         font-size: 30px;
-    }
-}
-@media(max-width: 992px){
-    .Titulo{
-        width: 100%;
-    }
-    .Titulo h1{
-        font-size: 25px;
-    }
-}
-@media(max-width: 768px){
-    .Titulo{
-        width: 100%;
-    }
-    .Titulo h1{
-        font-size: 20px;
-    }
-}
-@media (max-width: 600px){
-    .Titulo{
-        width: 100%;
-    }
-    .Titulo h1{
-        font-size: 20px;
     }
 }
 @media(max-width: 580px){
@@ -313,7 +298,6 @@ a{
     margin: 0;
     border-radius: 8px;
 }
-
 .tarjeta_nosotros_flex{
     display: flex;
     flex-direction: row;
@@ -331,6 +315,7 @@ a{
     width: 93%;
     background-color: #ACE29C;
     z-index: 0;
+    border-radius: 5px;
 }
 .tarjeta_nosotros_flex > * {
     position: relative;
@@ -349,27 +334,56 @@ body.active .tarjeta_nosotros_info{
     transition: .3s;
 }
 
+@media (max-width: 900px){
+    .Nosotros_tarjeta_contenedor{
+        margin: 80px 30px auto 30px;
+    }
+    .tarjeta_nosotros_flex .slider_box{
+        flex: 1 1 60%
+    }
+    .tarjeta_nosotros_info{
+        padding: 0;
+        font-size: 16px;
+    }
+    .Cartel_Nosotros{
+        font-size: 25px;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        padding: 18px 50px 12px 50px;
+    }
+}
+
 @media (max-width: 580px){
     .Nosotros_tarjeta_contenedor{
-        margin: 60px auto 0 0;
-        width: 95%;
+        margin: 80px 30px auto 30px;
         flex-direction: column;
+        background-color: #ACE29C;
+        border-radius: 5px;
+    }
+    body.active .Nosotros_tarjeta_contenedor{
+        background-color: #284e1c;
     }
     .Cartel_Nosotros{
         font-size: 20px;
-        left: 54%;
+        left: 49.9%;
         transform: translate(-50%, -50%);
+        padding: 18px 50px 12px 50px;
     }
     .tarjeta_nosotros_flex{
         flex-direction: column;
         padding: 20px 10px;
-        gap: 20px;
+        gap: 0px;
         align-items: center;
+        justify-content: center;
     }
     .tarjeta_nosotros_info{
         max-width: 90%;
         font-size: 18px;
-        text-align: center;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+    .tarjeta_nosotros_flex::before{
+        display: none;
     }
 }
 
@@ -410,29 +424,13 @@ body.active .tarjeta_nosotros_info{
 
 }
 
-@media (max-width: 1200px){
-    .slider_box{
-        width: 95%;
-    }
-}
-@media(max-width: 768px){
-    .slider_box{
-        width: 94%;
-    }
-}
-@media (max-width: 600px){
-    .slider_box{
-        width: 93%;
-    }
-}
 @media(max-width: 580px){
     .slider_box{
-        width: 70%;
-        left: 15px;
         padding-bottom: 0;
         margin-bottom: 0;
     }
 }
+
 
 /*Servicios*/
 .Servicios{
@@ -465,7 +463,8 @@ body.active .tarjeta_nosotros_info{
     gap: 10px;
     padding: 50px 20px 30px 20px;
     margin-top: 40px;
-}
+    border-radius: 5px;
+} 
 .servicio{
     display: flex;
     align-items: center;
@@ -479,6 +478,9 @@ body.active .tarjeta_nosotros_info{
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 6px 6px 0 #05050549;
+    text-align: center;
+    position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .servicio:hover{
     transform: scale(1.05);
@@ -487,8 +489,6 @@ body.active .tarjeta_nosotros_info{
 }
 .detalles{
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: #0000005e;
@@ -497,15 +497,16 @@ body.active .tarjeta_nosotros_info{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    opacity: 0;
-    transform: scale(0);
+    text-align: left;
     filter: blur(12px);
-    margin: 0;
     pointer-events: none;
     animation: blur-out-collapse 0.4s linear both;
+    font-weight: bold;
+    gap: 5px;
 }
 .servicio.mostrar-detalles .detalles{
     opacity: 1;
+    transform: scale(1);
     pointer-events: auto;
     animation: blur-in-expand 0.4s linear both;
 }
@@ -546,6 +547,32 @@ body.active .servicio{
         opacity: 0;
     }
 }
+@media(max-width: 900px){
+    .Servicios{
+        margin: 80px 30px auto 30px;
+    }
+    .Contenedor-Servicios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cartel_titulo_Servicios{
+        font-size: 25px;
+        left: 26%;
+        transform: translate(-50%, -50%);
+    }
+    .servicio{
+        width: 29%;
+        height: 170px;
+        font-size: 16px;
+    }
+    .detalles{
+        gap: 10px;
+        padding-right: 30px;
+        font-size: 14px;
+        list-style-type: none;
+    }
+}
 @media(max-width: 580px){
     .Servicios{
         margin: 80px 30px auto 30px;
@@ -562,10 +589,15 @@ body.active .servicio{
         padding: 18px 50px 12px 50px;
     }
     .servicio{
-        width: 40%;
+        width: 41%;
         height: 170px;
-        margin: 0px 20px 10px 0;
         font-size: 12px;
+    }
+    .detalles{
+        gap: 10px;
+        text-align: center;
+        padding: 0;
+        list-style-type: none;
     }
 }
 
@@ -577,6 +609,7 @@ body.active .servicio{
     position: relative;
     margin-top: 80px;
     background-color: #CD9CE2;
+    border-radius: 5px;
 }
 .cartel_titulo_contactos{
     position: absolute;
@@ -651,6 +684,34 @@ body.active .info_contacto{
     color: white;
     transition: .3s;
 }
+@media(max-width: 900px){
+    .Contenedor_Contacto{
+        margin: 80px 30px auto 30px;
+        padding: 20px 0px 20px 0px;
+    }
+    .cartel_titulo_contactos{
+        font-size: 25px;
+        left: 75%;
+        transform: translate(-50%, -50%);
+    }
+    .info_contacto{
+        width: 96%;
+        position: relative;
+        padding: 20px 10px 0px 17px;
+        
+    }
+    .boton_contacto{
+        gap: 10px;
+        margin: 30px auto 0 auto;
+        padding: 0 0 20px 0;
+    }
+    .boton_contacto button {
+        width: 200px;
+        height: 60px;
+        margin: 6px;
+        font-size: 1rem;
+    }
+}
 @media(max-width: 580px){
     .Contenedor_Contacto{
         margin: 80px 30px auto 30px;
@@ -664,8 +725,8 @@ body.active .info_contacto{
     .info_contacto{
         width: 90%;
         font-size: 18px;
-        padding: 20px 10px 0px 10px;
-        text-align: center;
+        padding: 20px 10px 0px 17px;
+        
     }
     .boton_contacto{
         flex-direction: column;
@@ -690,6 +751,9 @@ body.active .info_contacto{
     padding: 20px;
     font-family: 'Varela Round', sans-serif;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .redes_sociales{
     display: flex;
@@ -699,11 +763,27 @@ body.active .info_contacto{
     margin: 10px auto 20px auto;
 }
 .Qr{
-    margin: 0 auto 0 auto;
-    background-color: rgb(97, 91, 91);
-    width: 100px;
-    height: 100px;
     margin-top: 10px;
+    width: 7%;
+    display: flex;
+}
+.Qr img{
+    width: 100%;
+}
+@media(max-width: 900px){
+    .contenedor_footer{
+        margin-top: 50px;
+    }
+    .redes_sociales{
+        gap: 10px;
+    }
+    .Qr{
+        width: 80px;
+        height: 80px;
+    }
+    .contenedor_footer{
+        font-size: 16px;
+    }
 }
 @media(max-width: 580px){
     .contenedor_footer{

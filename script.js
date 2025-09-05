@@ -1,3 +1,4 @@
+// Slider de imagenes en Nosotros
 document.addEventListener("DOMContentLoaded", () => {
     const slideElements = document.querySelectorAll(".slide-in");
     
@@ -43,3 +44,4 @@ toggle.onclick=function(){
     toggle.classList.toggle('active');
     body.classList.toggle('active');
 }
+
