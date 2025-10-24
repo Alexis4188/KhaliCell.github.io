@@ -713,6 +713,47 @@ body.active .servicio{
     color: rgb(31, 173, 18);
     font-size: 2.3rem;
 }
+.info_contacto_Catalogo{
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+.boton_contacto_Catalogo{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin:  30px auto 0 auto;
+    max-width: 500px;
+    padding: 0 0 20px 0;
+}
+.boton_contacto_Catalogo button{
+    background-color: #ffffff;
+    width: 200px;
+    height: 70px;
+    color: #000000;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+    transition: 0.2s, transform 0.2s;
+    box-shadow: 2px 2px 8px #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+}
+.boton_contacto_Catalogo button:hover {
+    background-color: #E000B7;
+    transform: scale(1.2);
+    color: white;
+}
 body.active .cartel_titulo_contactos{
     background-color: #d4b226;
     transition: .3s;
